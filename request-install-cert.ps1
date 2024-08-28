@@ -40,35 +40,20 @@ function Install-Certificate {
 
     # Definir novo certificado no IIS, se especificado
     if ($I) {
-        try {
-            Get-PACertificate $Domain | Set-IISCertificate -SiteName 'Default Web Site' -Verbose
-            Write-Output "Certificado configurado com sucesso no IIS."
-        }
-        catch {
-            Write-Error "Ocorreu um erro ao configurar o certificado no IIS: $_"
-        }
+        Get-PACertificate $Domain | Set-IISCertificate -SiteName 'Default Web Site' -Verbose
+        Write-Output "Certificado configurado com sucesso no IIS."
     }
 
     # Definir novo certificado no RDGW, se especificado
     if ($R) {
-        try {
-            Get-PACertificate $Domain | Set-RDGWCertificate -Verbose
-            Write-Verbose "Certificado configurado com sucesso no RDGW"
-        }
-        catch {
-            Write-Error "Ocorreu um erro ao configurar o certificado no RDGW: $_"
-        }
+        Get-PACertificate $Domain | Set-RDGWCertificate -Verbose
+        Write-Verbose "Certificado configurado com sucesso no RDGW"
     }
 
     # Definir novo certificado no VPN-SSTP, se especificado
     if ($V) {
-        try {
-            Get-PACertificate $Domain | Set-RASSTPCertificate -Verbose
-            Write-Verbose "Certificado configurado com sucesso no SSTP"
-        }
-        catch {
-            Write-Error "Ocorreu um erro ao configurar o certificado no SSTP: $_"
-        }
+        Get-PACertificate $Domain | Set-RASSTPCertificate -Verbose
+        Write-Verbose "Certificado configurado com sucesso no SSTP"
     }
 }
 

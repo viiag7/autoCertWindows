@@ -38,18 +38,20 @@ if (-Not (Test-Path -Path $destinationPath)) {
     New-Item -ItemType Directory -Path $destinationPath
 }
 
-# Baixa os arquivos do GitHub
+# Baixa e extrai os arquivos do GitHub
 Invoke-WebRequest -Uri "https://github.com/viiag7/autoCertWindows/archive/refs/heads/main.zip" -OutFile "$destinationPath\autoCertWindows.zip"
 Expand-Archive -Path "$destinationPath\autoCertWindows.zip" -DestinationPath $destinationPath -Force
 
 # Define os parâmetros adicionais
-$additionalParams = ""
-if ($installType -eq "I") { $additionalParams += "-I " }
-elseif ($installType -eq "R") { $additionalParams += "-R " }
-elseif ($installType -eq "V") { $additionalParams += "-V " }
+$additionalParams = switch ($installType) {
+    "I" { "-I" }
+    "R" { "-R" }
+    "V" { "-V" }
+    default { "" }
+}
 
 # Define a ação da tarefa com os parâmetros
-$action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -WindowStyle Hidden -File $destinationPath\autoCertWindows-main\request-install-cert.ps1 -domain $domain -email $email $additionalParams"
+$action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -WindowStyle Hidden -File $destinationPath\autoCertWindows-main\request-install-cert.ps1 -domain $domain -email $email $additionalParams" -StartIn $destinationPath
 
 # Define o gatilho da tarefa com o dia da semana e a hora especificados
 $trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek $dayOfWeek -At $time
