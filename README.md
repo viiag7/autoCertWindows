@@ -2,7 +2,6 @@
 
 Este projeto fornece um script PowerShell para automatizar a solicitação e instalação de certificados SSL(Let's Encrypt) usando o módulo Posh-ACME e o serviço Let’s Encrypt. O script é capaz de configurar certificados em várias aplicações, incluindo IIS, RDGW e VPN-SSTP, e é integrado com o Azure DNS para gerenciamento do desafio de POSH-ACME.  
 
-<<<<<<< HEAD
 **Funcionalidades**
 
 Verificação e Instalação de Módulos: O script verifica se os módulos necessários (Posh-ACME e Posh-ACME.Deploy) estão instalados e os instala se necessário.
@@ -16,8 +15,7 @@ $Email (Obrigatório): Email de contato para a solicitação do certificado.
 $I (Opcional): Configurar certificado no IIS.
 $R (Opcional): Configurar certificado no RDGW.
 $V (Opcional): Configurar certificado no VPN-SSTP.
-Uso
-=======
+
 **Funcionalidades**  
 Verificação e Instalação de Módulos: O script verifica se os módulos necessários (Posh-ACME e Posh-ACME.Deploy) estão instalados e os instala se necessário.    
 
@@ -41,7 +39,6 @@ $R (Opcional): Configurar certificado no RDGW.
 $V (Opcional): Configurar certificado no VPN-SSTP.  
 
 **Uso**  
->>>>>>> b39462f7b4e647c669754d870dfbbe1f9cb90b94
 Clone o repositório para sua máquina local.
 Abra o PowerShell com permissões de administrador.
 Execute o script fornecendo os parâmetros necessários:  
@@ -64,4 +61,3 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull re
 ## Documentação  
 
 - Registro de Aplicativo e Criação de Role
-
