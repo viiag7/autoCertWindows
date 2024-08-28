@@ -46,4 +46,4 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull re
 
 ## Documentação  
 
-- Registro de Aplicativo e Criação de Role
+- [Registro de Aplicativo e Criação de Role](APP_REGISTRATION.md)
