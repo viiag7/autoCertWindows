@@ -9,7 +9,9 @@ Este projeto fornece um script PowerShell para automatizar a solicitação e ins
 
 **- Integração com Azure:** Utiliza credenciais do Azure para autenticação e criação do registro TXT `_acme-challenge.seudominio.com` na Zona de DNS para comprovação de propriedade do domínio e geração do certificado.
 
-**- Renovação Automática:** Verifica se um certificado já existe e, se necessário, renova o certificado existente. (Para automação completa é necessário configurar um agendador do Windows como execução diária).
+**- Renovação Automática:** Verifica se um certificado já existe e, se necessário, renova o certificado existente.
+> [!IMPORTANT]
+> Para renovação automática é necessário criar um agendamento no Windows que execute o script diariamente. 
 
 **- Registro de Logs:** Redireciona a saída verbose para um arquivo de log para facilitar a auditoria e o diagnóstico.
 
@@ -41,7 +43,13 @@ Este projeto fornece um script PowerShell para automatizar a solicitação e ins
 
 https://learn.microsoft.com/pt-br/entra/identity-platform/quickstart-register-app?tabs=certificate
   
-Contribuição
+### O que é Posh-ACME? ### 
+Posh-ACME é um módulo PowerShell e cliente ACME que permite criar certificados SSL/TLS publicamente confiáveis a partir de uma autoridade certificadora compatível com ACME, como o Let’s Encrypt. Ele suporta certificados multi-domínio, wildcard, IP address, e certificados pré-criados, além de vários plugins de validação e formatos de saída.
+
+### O que é Let’s Encrypt? ### 
+Let’s Encrypt é uma autoridade certificadora gratuita, automatizada e aberta, que fornece certificados SSL/TLS para milhões de sites. É operada pela organização sem fins lucrativos Internet Security Research Group (ISRG) e visa tornar a web mais segura e privativa.
+
+### Contribuição ###  
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests para melhorias e correções.
 
 ## Documentação  
