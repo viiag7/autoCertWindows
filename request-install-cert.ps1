@@ -87,7 +87,7 @@ function Request-And-Install-Certificate {
     )
 
     # Conectar-se ao Azure usando App Registration
-    $secureClientSecret = ConvertTo-SecureString $CLIENTE_SECRET -AsPlainText -Force
+    $secureClientSecret = ConvertTo-SecureString $CLIENT_SECRET -AsPlainText -Force
     $credential = New-Object System.Management.Automation.PSCredential ($CLIENT_ID, $secureClientSecret)
 
     # Configurar o servidor ACME (Let's Encrypt)
@@ -123,7 +123,7 @@ function Request-And-Install-Certificate {
             #Aceita termos de uso Lets Encrypt
             New-PAAccount $Email -AcceptTOS -
             # Solicitar um novo certificado
-            New-PACertificate -Domain $Domain -AcceptTOS -Contact $Email -Plugin Azure -PluginArgs $pluginArgs -DnsSleep 2 -Verbose -ErrorAction SilentlyContinue
+            New-PACertificate -Domain $Domain -AcceptTOS -Contact $Email -CertKeyLength ec-256 -Plugin Azure -PluginArgs $pluginArgs -DnsSleep 2 -Verbose -ErrorAction SilentlyContinue
             Write-Output "Certificado solicitado com sucesso."
             Install-Certificate -Domain $Domain -I:$I -R:$R -V:$V
         }
@@ -134,7 +134,7 @@ function Request-And-Install-Certificate {
 }
 
 # Chamar a função principal
-Request-And-Install-Certificate -Domain $Domain -Email $Email -AZSUBSCRIPTIONID $AZSUBSCRIPTIONID -CLIENT_ID $CLIENT_ID -CLIENTE_SECRET $CLIENTE_SECRET -TENANT_ID $TENANT_ID -I:$I -R:$R -V:$V
+Request-And-Install-Certificate -Domain $Domain -Email $Email -AZSUBSCRIPTIONID $AZSUBSCRIPTIONID -CLIENT_ID $CLIENT_ID -CLIENTE_SECRET $CLIENT_SECRET -TENANT_ID $TENANT_ID -I:$I -R:$R -V:$V
 
 # Parar a transcrição
 Stop-Transcript
