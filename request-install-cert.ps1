@@ -9,6 +9,8 @@ param (
     [switch]$V       # Para VPN-SSTP
 )
 
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Confirm:$false
+
 # Instalar os módulos necessários
 $modules = @("Posh-ACME", "Posh-ACME.Deploy")
 foreach ($module in $modules) {
@@ -16,6 +18,8 @@ foreach ($module in $modules) {
         Install-Module -Name $module -Scope AllUsers -Force
     }
 }
+
+
 
 # Incluir variáveis do Azure
 . ./azure-variables.ps1
