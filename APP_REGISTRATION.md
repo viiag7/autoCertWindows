@@ -38,7 +38,5 @@
 3. Selecione a função `posh-acme` criada e atribua ao aplicativo `posh-acme`.
 
 ## Referências
-- Documentação do Azure sobre Registro de Aplicativos
-- https://learn.microsoft.com/pt-br/entra/identity-platform/quickstart-register-app?tabs=certificate
-- Documentação do Azure sobre Criação de Roles Personalizadas
-- https://learn.microsoft.com/pt-br/azure/role-based-access-control/custom-roles-portal
+- (Documentação do Azure sobre Registro de Aplicativos)[https://learn.microsoft.com/pt-br/entra/identity-platform/quickstart-register-app?tabs=certificate]
+- (Documentação do Azure sobre Criação de Roles Personalizadas)[https://learn.microsoft.com/pt-br/azure/role-based-access-control/custom-roles-portal]
