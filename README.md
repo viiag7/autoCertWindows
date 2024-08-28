@@ -11,13 +11,15 @@ Este projeto fornece um script PowerShell para automatizar a solicitação e ins
 
 **- Renovação Automática:** Verifica se um certificado já existe e, se necessário, renova o certificado existente.
 > [!IMPORTANT]
-> Para renovação automática é necessário criar um agendamento no Windows que execute o script diariamente. 
+> Para renovação automática é necessário criar um agendamento no Windows que execute o script diariamente, no entanto, a renovação se dará após 60 dias da emissão ou renovação. 
 
 **- Registro de Logs:** Redireciona a saída verbose para um arquivo de log para facilitar a auditoria e o diagnóstico.
 
 ## Parâmetros ##  
 - `$Domain` (Obrigatório): Nome do domínio para o qual o certificado será solicitado.  
-- `$Email` (Obrigatório): Email de contato para a solicitação do certificado. (Let’s Encrypt envia lembretes quando o certificado está prestes a expirar, ajudando a garantir que você renove a tempo e mantenha seu site seguro ou Se houver algum problema com o certificado, como falhas na renovação automática, você será notificado.)  
+- `$Email` (Obrigatório): Email de contato para a solicitação do certificado.
+> [!IMPORTANT]
+> Let’s Encrypt envia lembretes quando o certificado está prestes a expirar, ajudando a garantir que você renove a tempo e mantenha seu site seguro ou Se houver algum problema com o certificado, como falhas na renovação automática, você será notificado.
 - `$I` (Opcional): Configurar certificado no IIS.  
 - `$R` (Opcional): Configurar certificado no RDGW.  
 - `$V` (Opcional): Configurar certificado no VPN-SSTP.  
