@@ -24,6 +24,12 @@ $dayOfWeek = Read-Host "Por favor, insira o dia da semana para a execução"
 # Solicita a hora de execução
 $time = Read-Host "Por favor, insira a hora de execução (formato HH:MM AM/PM)"
 
+# Solicita os atributos adicionais do Azure
+$AZSUBSCRIPTIONID = Read-Host "Por favor, insira o AZSUBSCRIPTIONID"
+$CLIENT_ID = Read-Host "Por favor, insira o CLIENT_ID"
+$CLIENT_SECRET = Read-Host "Por favor, insira o CLIENT_SECRET"
+$TENANT_ID = Read-Host "Por favor, insira o TENANT_ID"
+
 # Define o caminho para salvar os arquivos
 $destinationPath = "$env:SystemRoot\cert-autorenew"
 
@@ -59,3 +65,15 @@ Register-ScheduledTask -TaskName "AutoCertRenew" -Action $action -Trigger $trigg
 
 # Executa a tarefa imediatamente
 Start-ScheduledTask -TaskName "AutoCertRenew"
+
+# Escreve os atributos do Azure no arquivo azure-variables.ps1
+$azureVariablesPath = "$destinationPath\autoCertWindows-main\azure-variables.ps1"
+$azureVariablesContent = @"
+\$AZSUBSCRIPTIONID = '$AZSUBSCRIPTIONID'
+\$CLIENT_ID = '$CLIENT_ID'
+\$CLIENT_SECRET = '$CLIENT_SECRET'
+\$TENANT_ID = '$TENANT_ID'
+"@
+Set-Content -Path $azureVariablesPath -Value $azureVariablesContent
+
+Write-Host "Os atributos do Azure foram salvos em $azureVariablesPath"
