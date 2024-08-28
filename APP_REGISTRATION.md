@@ -7,7 +7,6 @@
 3. Preencha os detalhes do aplicativo:
    - **Name**: `posh-acme`
    - **Supported account types**: Selecione o tipo de conta apropriado.
-   - **Redirect URI**: (opcional) Adicione se necessário.
 4. Clique em **Register**.
 
 ## Passo 2: Criar uma Chave do Aplicativo
@@ -15,7 +14,11 @@
 1. Após registrar o aplicativo, navegue até **Certificates & secrets**.
 2. Clique em **New client secret**.
 3. Adicione uma descrição e defina um período de expiração.
+>[!IMPORTANT]
+>Defina um tempo de vida apropriado para a chave, considerando a segurança e a necessidade de renovação periódica.
 4. Clique em **Add** e copie o valor do client secret. **Salve este valor** pois ele não será mostrado novamente.
+>[!CAUTION]
+>Não compartilhe a chave do aplicativo (client secret). Mantenha-a segura e configure o acesso condicional no Azure para permitir apenas IPs confiáveis.
 
 ## Passo 3: Criação de Role com Permissões
 
