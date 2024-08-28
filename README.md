@@ -9,7 +9,7 @@ Verificação e Instalação de Módulos: O script verifica se os módulos neces
 Automatiza a configuração de certificados SSL em IIS, RDGW e VPN-SSTP.
 
 **Integração com Azure:** 
-Utiliza credenciais do Azure para autenticação e criação do registro _acme-challenge na Zona de DNS para comprovação de propriedade do domínio e geração do certificado.
+Utiliza credenciais do Azure para autenticação e criação do registro TXX _acme-challenge na Zona de DNS para comprovação de propriedade do domínio e geração do certificado.
 
 **Renovação Automática:**
 Verifica se um certificado já existe e, se necessário, renova o certificado existente. (Para automação completa é necessário configurar um agendador do Windows como execução diária)
