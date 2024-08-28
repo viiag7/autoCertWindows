@@ -19,8 +19,6 @@ foreach ($module in $modules) {
     }
 }
 
-
-
 # Incluir variáveis do Azure
 . ./azure-variables.ps1
 
@@ -116,6 +114,8 @@ function Request-And-Install-Certificate {
     }
     else {
         try {
+            #Aceita termos de uso Lets Encrypt
+            New-PAAccount $Email -AcceptTOS
             # Solicitar um novo certificado
             New-PACertificate -Domain $Domain -AcceptTOS -Contact $Email -Plugin Azure -PluginArgs $pluginArgs -DnsSleep 2 -Verbose -ErrorAction SilentlyContinue
             Write-Output "Certificado solicitado com sucesso."
