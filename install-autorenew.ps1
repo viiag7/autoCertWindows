@@ -25,10 +25,10 @@ $dayOfWeek = Read-Host "Por favor, insira o dia da semana para a execução"
 $time = Read-Host "Por favor, insira a hora de execução (formato HH:MM AM/PM)"
 
 # Solicita os atributos adicionais do Azure
-$AZSUBSCRIPTIONID = Read-Host "Por favor, insira o AZSUBSCRIPTIONID"
-$CLIENT_ID = Read-Host "Por favor, insira o CLIENT_ID"
-$CLIENT_SECRET = Read-Host "Por favor, insira o CLIENT_SECRET"
-$TENANT_ID = Read-Host "Por favor, insira o TENANT_ID"
+$AZSUBSCRIPTIONID = Read-Host "Por favor, insira o AzSubscriptionID"
+$CLIENT_ID = Read-Host "Por favor, insira o Client_ID"
+$CLIENT_SECRET = Read-Host "Por favor, insira o Client_Secret"
+$TENANT_ID = Read-Host "Por favor, insira o Tenant_ID"
 
 # Define o caminho para salvar os arquivos
 $destinationPath = "$env:SystemRoot\cert-autorenew"
@@ -75,6 +75,5 @@ $azureVariablesContent = @"
 `$TENANT_ID = '$TENANT_ID'
 "@
 Set-Content -Path $azureVariablesPath -Value $azureVariablesContent
-
 
 Write-Host "Os atributos do Azure foram salvos em $azureVariablesPath"
