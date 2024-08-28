@@ -42,7 +42,7 @@ $V (Opcional): Configurar certificado no VPN-SSTP.
 Clone o repositório para sua máquina local.
 Abra o PowerShell com permissões de administrador.
 Execute o script fornecendo os parâmetros necessários:  
-.\Request-And-Install-Certificate.ps1 -Domain "seu.dominio.com" -Email "seu.email@dominio.com" -I -R -V
+`.\Request-And-Install-Certificate.ps1 -Domain "seu.dominio.com" -Email "seu.email@dominio.com" -I -R -V`
 
 **Requisitos**  
 - PowerShell 5.1 ou superior.  
