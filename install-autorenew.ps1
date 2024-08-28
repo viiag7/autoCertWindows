@@ -69,10 +69,10 @@ Start-ScheduledTask -TaskName "AutoCertRenew"
 # Escreve os atributos do Azure no arquivo azure-variables.ps1
 $azureVariablesPath = "$destinationPath\autoCertWindows-main\azure-variables.ps1"
 $azureVariablesContent = @"
-AZSUBSCRIPTIONID = '$AZSUBSCRIPTIONID'
-CLIENT_ID = '$CLIENT_ID'
-CLIENT_SECRET = '$CLIENT_SECRET'
-TENANT_ID = '$TENANT_ID'
+`$AZSUBSCRIPTIONID = '$AZSUBSCRIPTIONID'
+`$CLIENT_ID = '$CLIENT_ID'
+`$CLIENT_SECRET = '$CLIENT_SECRET'
+`$TENANT_ID = '$TENANT_ID'
 "@
 Set-Content -Path $azureVariablesPath -Value $azureVariablesContent
 
