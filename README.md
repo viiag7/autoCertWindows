@@ -2,35 +2,35 @@
 
 Este projeto fornece um script PowerShell para automatizar a solicitação e instalação de certificados SSL(Let's Encrypt) usando o módulo Posh-ACME e o serviço Let’s Encrypt. O script é capaz de configurar certificados em várias aplicações, incluindo IIS, RDGW e VPN-SSTP, e é integrado com o Azure DNS para gerenciamento do desafio de POSH-ACME.  
 
-**Funcionalidades**  
-Verificação e Instalação de Módulos: O script verifica se os módulos necessários (Posh-ACME e Posh-ACME.Deploy) estão instalados e os instala se necessário.    
+## Funcionalidades ##  
+**- Verificação e Instalação de Módulos:** O script verifica se os módulos necessários (Posh-ACME e Posh-ACME.Deploy) estão instalados e os instala se necessário.    
 
-**Configuração de Certificados:**  
-Automatiza a configuração de certificados SSL em IIS, RDGW e VPN-SSTP.
+**- Configuração de Certificados:**  Automatiza a configuração de certificados SSL em IIS, RDGW e VPN-SSTP.
 
-**Integração com Azure:** 
-Utiliza credenciais do Azure para autenticação e criação do registro TXX _acme-challenge na Zona de DNS para comprovação de propriedade do domínio e geração do certificado.
+**- Integração com Azure:** Utiliza credenciais do Azure para autenticação e criação do registro TXX `_acme-challenge.seudominio.com` na Zona de DNS para comprovação de propriedade do domínio e geração do certificado.
 
-**Renovação Automática:**
-Verifica se um certificado já existe e, se necessário, renova o certificado existente. (Para automação completa é necessário configurar um agendador do Windows como execução diária)
+**- Renovação Automática:** Verifica se um certificado já existe e, se necessário, renova o certificado existente. (Para automação completa é necessário configurar um agendador do Windows como execução diária)
 
-**Registro de Logs:** 
-Redireciona a saída verbose para um arquivo de log para facilitar a auditoria e o diagnóstico.
+**- Registro de Logs:** Redireciona a saída verbose para um arquivo de log para facilitar a auditoria e o diagnóstico.
 
-**Parâmetros**  
-$Domain (Obrigatório): Nome do domínio para o qual o certificado será solicitado.  
-$Email (Obrigatório): Email de contato para a solicitação do certificado. (Let’s Encrypt envia lembretes quando o certificado está prestes a expirar, ajudando a garantir que você renove a tempo e mantenha seu site seguro ou Se houver algum problema com o certificado, como falhas na renovação automática, você será notificado.)  
-$I (Opcional): Configurar certificado no IIS.  
-$R (Opcional): Configurar certificado no RDGW.  
-$V (Opcional): Configurar certificado no VPN-SSTP.  
+## Parâmetros ##  
+- `$Domain` (Obrigatório): Nome do domínio para o qual o certificado será solicitado.  
+- `$Email` (Obrigatório): Email de contato para a solicitação do certificado. (Let’s Encrypt envia lembretes quando o certificado está prestes a expirar, ajudando a garantir que você renove a tempo e mantenha seu site seguro ou Se houver algum problema com o certificado, como falhas na renovação automática, você será notificado.)  
+- `$I` (Opcional): Configurar certificado no IIS.  
+- `$R` (Opcional): Configurar certificado no RDGW.  
+- `$V` (Opcional): Configurar certificado no VPN-SSTP.  
 
-**Uso**  
-Clone o repositório para sua máquina local.
-Abra o PowerShell com permissões de administrador.
-Execute o script fornecendo os parâmetros necessários:  
-`.\Request-And-Install-Certificate.ps1 -Domain "seu.dominio.com" -Email "seu.email@dominio.com" -I -R -V`
+## Uso ##
+1. Clone o repositório para sua máquina local.
+2. Configure o APP e a Role no [Azure](APP_REGISTRATION.md) 
+3. Abra o PowerShell com permissões de administrador.
+4. Execute o script fornecendo os parâmetros necessários:
 
-**Requisitos**  
+```powershell
+.\Request-And-Install-Certificate.ps1 -Domain "seu.dominio.com" -Email "seu.email@dominio.com" -I -R -V
+````  
+
+## Requisitos ##
 - PowerShell 5.1 ou superior.  
 - Módulos Posh-ACME e Posh-ACME.Deploy.  
 - Conta no Azure com permissões adequadas para gerenciar Zona de DNS. [Clique aqui](APP_REGISTRATION.md) para ver o procedimento de configuração
