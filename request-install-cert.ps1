@@ -79,7 +79,7 @@ function Request-And-Install-Certificate {
         [string]$Email,
         [string]$AZSUBSCRIPTIONID,
         [string]$CLIENT_ID,
-        [string]$CLIENTE_SECRET,
+        [string]$CLIENT_SECRET,
         [string]$TENANT_ID,
         [switch]$I,
         [switch]$R,
@@ -134,7 +134,7 @@ function Request-And-Install-Certificate {
 }
 
 # Chamar a função principal
-Request-And-Install-Certificate -Domain $Domain -Email $Email -AZSUBSCRIPTIONID $AZSUBSCRIPTIONID -CLIENT_ID $CLIENT_ID -CLIENTE_SECRET $CLIENT_SECRET -TENANT_ID $TENANT_ID -I:$I -R:$R -V:$V
+Request-And-Install-Certificate -Domain $Domain -Email $Email -AZSUBSCRIPTIONID $AZSUBSCRIPTIONID -CLIENT_ID $CLIENT_ID -CLIENT_SECRET $CLIENT_SECRET -TENANT_ID $TENANT_ID -I:$I -R:$R -V:$V
 
 # Parar a transcrição
 Stop-Transcript
