@@ -121,7 +121,7 @@ function Request-And-Install-Certificate {
                 New-PAAccount $Email -AcceptTOS
             }
             #Aceita termos de uso Lets Encrypt
-            New-PAAccount $Email -AcceptTOS -
+            New-PAAccount $Email -AcceptTOS
             # Solicitar um novo certificado
             New-PACertificate -Domain $Domain -AcceptTOS -Contact $Email -CertKeyLength ec-256 -Plugin Azure -PluginArgs $pluginArgs -DnsSleep 2 -Verbose -ErrorAction SilentlyContinue
             Write-Output "Certificado solicitado com sucesso."
