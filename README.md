@@ -47,7 +47,7 @@ Execute o script fornecendo os parâmetros necessários:
 **Requisitos**  
 - PowerShell 5.1 ou superior.  
 - Módulos Posh-ACME e Posh-ACME.Deploy.  
-- Conta no Azure com permissões adequadas para gerenciar Zona de DNS. [Clique aqui](https://github.com/viiag7/autoCertWindows/blob/main/APP_REGISTRATION.md) para ver o procedimento de configuração
+- Conta no Azure com permissões adequadas para gerenciar Zona de DNS. [Clique aqui](APP_REGISTRATION.md) para ver o procedimento de configuração
     - Por questões de segurança é extremamente importante criar uma role no Azure e conceder apenas as permissões necessárias no Resource Group que hospeada as zonas de DNS:  
       - Get DNS Zone   
       - Get record set of type TXT   
