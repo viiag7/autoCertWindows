@@ -26,7 +26,7 @@ Este projeto fornece um script PowerShell para automatizar a solicitação e ins
 
 ## Uso ##
 1. Clone o repositório para sua máquina local.
-2. Configure o APP e a Role no [Azure](APP_REGISTRATION.md) 
+2. Caso ainda não tenha dados de acesso do Azure DNS, configure o App Registration e a Role no [Azure](APP_REGISTRATION.md) 
 3. Abra o PowerShell com permissões de administrador.
 4. Execute o script fornecendo os parâmetros necessários:
 
