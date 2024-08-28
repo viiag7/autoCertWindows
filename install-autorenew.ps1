@@ -76,4 +76,5 @@ $azureVariablesContent = @"
 "@
 Set-Content -Path $azureVariablesPath -Value $azureVariablesContent
 
+
 Write-Host "Os atributos do Azure foram salvos em $azureVariablesPath"
