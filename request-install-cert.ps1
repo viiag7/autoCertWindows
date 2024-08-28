@@ -100,8 +100,13 @@ function Request-And-Install-Certificate {
         AzappCred        = $credential
     }
 
-    # Verificar se o certificado já existe
-    $certificate = Get-PACertificate $Domain
+    if(Get-PAAccount){
+        Write-Output "PAAccount existente"
+        # Verificar se o certificado já existe
+        $certificate = Get-PACertificate $Domain
+    }else{
+        New-PAAccount $Email -AcceptTOS
+    }
 
     if ($certificate) {
         try {
@@ -115,11 +120,6 @@ function Request-And-Install-Certificate {
     }
     else {
         try {
-            if(Get-PAAccount){
-                Write-Output "PAAccount existente"
-            }else{
-                New-PAAccount $Email -AcceptTOS
-            }
             #Aceita termos de uso Lets Encrypt
             New-PAAccount $Email -AcceptTOS
             # Solicitar um novo certificado
