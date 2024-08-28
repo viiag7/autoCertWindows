@@ -9,7 +9,7 @@ Este projeto fornece um script PowerShell para automatizar a solicitação e ins
 
 **- Integração com Azure:** Utiliza credenciais do Azure para autenticação e criação do registro TXT `_acme-challenge.seudominio.com` na Zona de DNS para comprovação de propriedade do domínio e geração do certificado.
 
-**- Renovação Automática:** Verifica se um certificado já existe e, se necessário, renova o certificado existente. (Para automação completa é necessário configurar um agendador do Windows como execução diária)
+**- Renovação Automática:** Verifica se um certificado já existe e, se necessário, renova o certificado existente. (Para automação completa é necessário configurar um agendador do Windows como execução diária).
 
 **- Registro de Logs:** Redireciona a saída verbose para um arquivo de log para facilitar a auditoria e o diagnóstico.
 
