@@ -51,7 +51,7 @@ $additionalParams = switch ($installType) {
 }
 
 # Define a ação da tarefa com os parâmetros
-$action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -WindowStyle Hidden -File $destinationPath\autoCertWindows-main\request-install-cert.ps1 -domain $domain -email $email $additionalParams" -StartIn $destinationPath
+$action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -WindowStyle Hidden -File $destinationPath\autoCertWindows-main\request-install-cert.ps1 -domain $domain -email $email $additionalParams" -WorkingDirectory $destinationPath
 
 # Define o gatilho da tarefa com o dia da semana e a hora especificados
 $trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek $dayOfWeek -At $time
