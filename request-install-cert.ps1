@@ -9,8 +9,11 @@ param (
     [switch]$V       # Para VPN-SSTP
 )
 
-#  Instalar dependência do Nuget
-Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Confirm:$false
+# Verifica se o NuGet já está instalado
+if (-not (Get-PackageProvider -Name NuGet -ErrorAction SilentlyContinue)) {
+    # Instala o NuGet se não estiver instalado
+    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Confirm:$false
+}
 
 # Instalar os módulos necessários
 $modules = @("Posh-ACME", "Posh-ACME.Deploy")
@@ -24,7 +27,7 @@ foreach ($module in $modules) {
 . ./azure-variables.ps1
 
 # Defina o caminho do arquivo de log
-$logFile = "$env:TEMP\posh-acme.log"
+$logFile = "$env:HOMEDRIVE\auto-renew-cert\posh-acme.log"
 
 # Redirecione a saída verbose para o arquivo de log
 Start-Transcript -Path $logFile -Append
@@ -93,26 +96,16 @@ function Request-And-Install-Certificate {
     }
 
     if ($certificate) {
-        try {
             # Renovar o certificado existente
             Submit-Renewal $Domain
             Install-Certificate -Domain $Domain -I:$I -R:$R -V:$V
-        }
-        catch {
-            Write-Error "WARNING: $_"
-        }
     }
     else {
-        try {
             # Solicitar um novo certificado
             New-PACertificate -Domain $Domain -AcceptTOS -Contact $Email -CertKeyLength ec-256 -Plugin Azure -PluginArgs $pluginArgs -DnsSleep 2 -Verbose -ErrorAction SilentlyContinue
             Write-Output "Certificado solicitado com sucesso."
             Install-Certificate -Domain $Domain -I:$I -R:$R -V:$V
         }
-        catch {
-            Write-Error "ERROR: Ocorreu um erro ao solicitar o certificado: $_"
-        }
-    }
 }
 
 # Chamar a função principal

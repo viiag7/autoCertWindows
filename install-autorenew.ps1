@@ -31,7 +31,7 @@ $CLIENT_SECRET = Read-Host "Por favor, insira o Client_Secret"
 $TENANT_ID = Read-Host "Por favor, insira o Tenant_ID"
 
 # Define o caminho para salvar os arquivos
-$destinationPath = "$env:SystemRoot\cert-autorenew"
+$destinationPath = "$env:HOMEDRIVE\auto-renew-cert"
 
 # Cria o diretório se não existir
 if (-Not (Test-Path -Path $destinationPath)) {
