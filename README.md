@@ -26,9 +26,10 @@ Este projeto fornece um script PowerShell para automatizar a solicitação e ins
 
 ## Uso ##
 1. Clone o repositório para sua máquina local.
-2. Caso ainda não tenha dados de acesso do Azure DNS, configure o App Registration e a Role no [Azure](APP_REGISTRATION.md) 
-3. Abra o PowerShell com permissões de administrador.
-4. Execute o script fornecendo os parâmetros necessários:
+2. Caso ainda não tenha dados de acesso do Azure DNS, configure o App Registration e a Role no [Azure](APP_REGISTRATION.md)
+3. Insira os dados do Azure dentro do arquivo azure-variables.ps1
+4. Abra o PowerShell com permissões de administrador.
+5. Execute o script fornecendo os parâmetros necessários:
 
 ```powershell
 .\Request-And-Install-Certificate.ps1 -Domain "seu.dominio.com" -Email "seu.email@dominio.com" -I -R -V
