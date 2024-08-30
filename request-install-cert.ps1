@@ -12,7 +12,7 @@ param (
 # Verifica se o NuGet já está instalado
 if (-not (Get-PackageProvider -Name NuGet -ErrorAction SilentlyContinue)) {
     # Instala o NuGet se não estiver instalado
-    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Confirm:$false
+    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Confirm:$true
 }
 
 # Instalar os módulos necessários

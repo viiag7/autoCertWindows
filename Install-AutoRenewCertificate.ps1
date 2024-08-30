@@ -1,3 +1,91 @@
+<#PSScriptInfo
+
+.VERSION 1.0.0
+
+.GUID 06ac1728-6e55-4a52-a72a-13b18940b2fb
+
+.AUTHOR Vinicius Aguiar
+
+.COMPANYNAME Vinicius Aguiar Solutions
+
+.COPYRIGHT (c) 2024 Vinicius Aguiar. Todos os direitos reservados.
+
+.TAGS SSL, Certificado, Automação, PowerShell, Agendamento
+
+.LICENSEURI 
+
+.PROJECTURI https://github.com/viiag7/autoCertWindows
+
+.ICONURI 
+
+.EXTERNALMODULEDEPENDENCIES
+
+.REQUIREDSCRIPTS
+
+.EXTERNALSCRIPTDEPENDENCIES Nenhum
+
+.RELEASENOTES
+## Versão 1.0.0
+- Primeira versão do script para automação de renovação de certificados SSL.
+
+.PRIVATEDATA
+
+#>
+
+<#
+
+.DESCRIPTION
+ Script para automatizar a renovação de certificados SSL usando agendamento de tarefas no Windows.
+
+<#
+.SYNOPSIS
+    AUTO-RENEW-CERT 1.0 - (IIS, RDGW, VPN SSTP) by: Vinicius Aguiar
+
+.DESCRIPTION
+    Este script faz o download dos arquivos do repositório GitHub e cria uma tarefa agendada para executar o script `request-install-cert.ps1` no horário especificado.
+
+.PARAMETER domain
+    O domínio para o qual o certificado será solicitado.
+
+.PARAMETER email
+    O email para notificações e contato.
+
+.PARAMETER installType
+    O tipo de instalação: 
+    - I: IIS
+    - R: Remote Desktop Gateway
+    - V: VPN SSTP
+
+.PARAMETER dayOfWeek
+    O dia da semana para a execução da tarefa agendada.
+
+.PARAMETER time
+    A hora de execução da tarefa agendada (formato HH:MM AM/PM).
+
+.PARAMETER AZSUBSCRIPTIONID
+    O ID da assinatura do Azure.
+
+.PARAMETER CLIENT_ID
+    O ID do cliente (Client ID) do Azure.
+
+.PARAMETER CLIENT_SECRET
+    O segredo do cliente (Client Secret) do Azure.
+
+.PARAMETER TENANT_ID
+    O ID do locatário (Tenant ID) do Azure.
+
+.EXAMPLE
+    .\install-autorenew.ps1
+    Este exemplo executa o script e solicita as entradas necessárias para configurar a tarefa agendada.
+
+.NOTES
+    Nome: install-autorenew.ps1
+    Versão: 1.0.0
+    Autor: Vinicius Aguiar
+    Data: 30/08/2024
+    Descrição: Script para automatizar a renovação de certificados SSL usando agendamento de tarefas no Windows.
+#>
+
 # Descrição do aplicativo
 Write-Host "### AUTO-RENEW-CERT 1.0 - (IIS, RDGW, VPN SSTP) by:Vinicius Aguiar ###" -BackgroundColor DarkGreen
 Write-Host "Este script faz o download dos arquivos do repositório GitHub e cria uma tarefa agendada para executar o script request-install-cert.ps1 no horário especificado."
