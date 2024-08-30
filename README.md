@@ -49,7 +49,7 @@ Install-Script -Name Install-AutoRenewCertificate
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 ````
 4. Caso ainda não tenha dados de acesso do Azure DNS, configure o App Registration e a Role no [Azure](APP_REGISTRATION.md)
-5. Execute o script fornecendo os parâmetros necessários:
+5. Execute o script fornecendo e fornceça os parâmetros necessários:
 
 ```powershell
 .\Install-AutoRenewCertificate.ps1
