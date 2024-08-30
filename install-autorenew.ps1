@@ -39,8 +39,7 @@ if (-Not (Test-Path -Path $destinationPath)) {
 }
 
 # Baixa e extrai os arquivos do GitHub
-Invoke-WebRequest -Uri "https://github.com/viiag7/autoCertWindows/archive/refs/heads/main.zip" -OutFile "$destinationPath\autoCertWindows.zip"
-Expand-Archive -Path "$destinationPath\autoCertWindows.zip" -DestinationPath $destinationPath -Force
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/viiag7/autoCertWindows/main/request-install-cert.ps1" -OutFile "$destinationPath\request-install-cert.ps1"
 
 # Define os parâmetros adicionais
 $additionalParams = switch ($installType) {
@@ -51,7 +50,7 @@ $additionalParams = switch ($installType) {
 }
 
 # Define a ação da tarefa com os parâmetros
-$action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -WindowStyle Hidden -File $destinationPath\autoCertWindows-main\request-install-cert.ps1 -domain $domain -email $email $additionalParams" -WorkingDirectory $destinationPath
+$action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -WindowStyle Hidden -File $destinationPath\request-install-cert.ps1 -domain $domain -email $email $additionalParams" -WorkingDirectory $destinationPath
 
 # Define o gatilho da tarefa com o dia da semana e a hora especificados
 $trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek $dayOfWeek -At $time
@@ -69,7 +68,7 @@ Register-ScheduledTask -TaskName "AutoCertRenew" -Action $action -Trigger $trigg
 Start-ScheduledTask -TaskName "AutoCertRenew"
 
 # Escreve os atributos do Azure no arquivo azure-variables.ps1
-$azureVariablesPath = "$destinationPath\autoCertWindows-main\azure-variables.ps1"
+$azureVariablesPath = "$destinationPath\azure-variables.ps1"
 $azureVariablesContent = @"
 `$AZSUBSCRIPTIONID = '$AZSUBSCRIPTIONID'
 `$CLIENT_ID = '$CLIENT_ID'
