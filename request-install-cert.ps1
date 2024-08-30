@@ -43,7 +43,7 @@ function Install-Certificate {
 
     # Definir novo certificado no IIS, se especificado
     if ($I) {
-        Get-PACertificate $Domain | Set-IISCertificate -SiteName 'Default Web Site' -Verbose
+        Get-PACertificate $Domain | Set-IISCertificateOld -SiteName 'Default Web Site' -Verbose
         Write-Output "Certificado configurado com sucesso no IIS."
     }
 

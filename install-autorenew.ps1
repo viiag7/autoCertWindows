@@ -1,5 +1,5 @@
 # Descrição do aplicativo
-Write-Host "Auto-CertRenew - Script para renovar certificados automaticamente"
+Write-Host "### AUTO-RENEW-CERT 1.0 - (IIS, RDGW, VPN SSTP) by:Vinicius Aguiar ###" -BackgroundColor DarkGreen
 Write-Host "Este script faz o download dos arquivos do repositório GitHub e cria uma tarefa agendada para executar o script request-install-cert.ps1 no horário especificado."
 Write-Host ""
 
@@ -17,7 +17,7 @@ Write-Host "V - VPN SSTP"
 $installType = Read-Host "Por favor, insira o tipo de instalação (I, R ou V)"
 
 # Solicita o dia da semana
-Write-Host "Dias da semana disponíveis para instalação:"
+Write-Host "Dia para agendamento de renovação:"
 Write-Host "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
 $dayOfWeek = Read-Host "Por favor, insira o dia da semana para a execução"
 
