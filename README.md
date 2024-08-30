@@ -52,7 +52,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 5. Execute o script fornecendo e fornceça os parâmetros necessários:
 
 ```powershell
-.\Install-AutoRenewCertificate.ps1
+Install-AutoRenewCertificate.ps1
 ````  
 
 ## Requisitos ##
