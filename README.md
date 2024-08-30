@@ -1,10 +1,10 @@
-# Automação emissão e instalação de certificados digitais Windows Server (IIS, RDGW, VPN-SSTP)
+# Automação de emissão e instalação de certificados digitais Windows Server (IIS, RDGW, VPN-SSTP)
 
 Este projeto fornece um script PowerShell para automatizar a emissão, instalação de certificados SSL(Let's Encrypt) usando o módulo Posh-ACME, Let’s Encrypt e o agendamento de tarefas no Windows para renovação automática. O script é capaz de criar o agendamento, emitir o certificado digital e configurar certificados em várias aplicações, incluindo IIS, RDGW e VPN-SSTP, ele é integrado com o Azure DNS para gerenciamento do desafio do Let-s Encrypt.  
 
 ## Funcionalidades ##  
 
-**- Download e configuração dos arquivos:** O script realiza o download dos arquivos necessários para emissão, instalação e renovação dos certificados e configura as váriaveis necessárias para comunicação com Azure DNS.
+**- Download e configuração:** O script realiza o download dos arquivos necessários para emissão, instalação e renovação dos certificados e configura as váriaveis necessárias para comunicação com Azure DNS.
 
 **- Verificação e Instalação de Módulos:** O script verifica se os módulos necessários (Posh-ACME e Posh-ACME.Deploy) estão instalados e os instala se necessário.    
 
@@ -23,21 +23,30 @@ Este projeto fornece um script PowerShell para automatizar a emissão, instalaç
 - `$Email` (Obrigatório): Email de contato para a solicitação do certificado.
 > [!IMPORTANT]
 > Let’s Encrypt envia lembretes quando o certificado está prestes a expirar, ajudando a garantir que você renove a tempo e mantenha seu site seguro ou Se houver algum problema com o certificado, como falhas na renovação automática, você será notificado.
-- ***installType***: O tipo de instalação:
+- **InstallType**: O tipo de instalação:
   - `$I` (Opcional): Configurar certificado no IIS.  
   - `$R` (Opcional): Configurar certificado no RDGW.  
   - `$V` (Opcional): Configurar certificado no VPN-SSTP.  
-- ***dayOfWeek**: O dia da semana para a execução da tarefa agendada.
-- ***time***: A hora de execução da tarefa agendada (formato HH:MM AM/PM).
-- ***AZSUBSCRIPTIONID***: O ID da assinatura do Azure.
-- ***CLIENT_ID***: O ID do cliente (Client ID) do Azure.
-- ***CLIENT_SECRET***: O segredo do cliente (Client Secret) do Azure.
-- ***TENANT_ID***: O ID do locatário (Tenant ID) do Azure.
+- `dayOfWeek`(Obrigatório) O dia da semana para a execução da tarefa agendada.
+- `time` (Obrigatório): A hora de execução da tarefa agendada (formato HH:MM AM/PM).
+- `AZSubscriptionID` (Obrigatório): O ID da assinatura do Azure.
+- `Client_ID` (Obrigatório): O ID do cliente (Client ID) do Azure.
+- `Client_Secret` (Obrigatório): O segredo do cliente (Client Secret) do Azure.
+- `Tenant_ID` (Obrigatório): O ID do locatário (Tenant ID) do Azure.
 
 ## Uso ##
-1. Realize o download do arquivo [Install-AutoRenewCertificate](Install-AutoRenewCertificate.ps1).
-2. Caso ainda não tenha dados de acesso do Azure DNS, configure o App Registration e a Role no [Azure](APP_REGISTRATION.md)
-4. Abra o PowerShell com permissões de administrador.
+
+
+1. Abra o PowerShell com permissões de administrador.
+2. O Script está publicado dentro do PowerShell Gallery realize a instalação utilizando o comando:
+```powershell
+Install-Script -Name Install-AutoRenewCertificate	
+````
+3. Permite a execução de script não assinados
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+````
+4. Caso ainda não tenha dados de acesso do Azure DNS, configure o App Registration e a Role no [Azure](APP_REGISTRATION.md)
 5. Execute o script fornecendo os parâmetros necessários:
 
 ```powershell
