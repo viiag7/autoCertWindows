@@ -1,6 +1,6 @@
 # Automação de emissão e instalação de certificados digitais Windows Server (IIS, RDGW, VPN-SSTP)
 
-Este projeto fornece um script PowerShell para automatizar a emissão, instalação de certificados SSL(Let's Encrypt) usando o módulo Posh-ACME, Let’s Encrypt e o agendamento de tarefas no Windows para renovação automática. O script é capaz de criar o agendamento, emitir o certificado digital e configurar certificados em várias aplicações, incluindo IIS, RDGW e VPN-SSTP, ele é integrado com o Azure DNS para gerenciamento do desafio do Let-s Encrypt.  
+Este projeto fornece um script PowerShell para automação de emissão, instalação de certificados SSL(Let's Encrypt) usando o módulo Posh-ACME, Let’s Encrypt e o agendamento de tarefas no Windows para renovação automática. O script é capaz de criar o agendamento, emitir o certificado digital e configurar certificados em várias aplicações, incluindo IIS, RDGW e VPN-SSTP, ele é integrado com o Azure DNS para gerenciamento do desafio do Let-s Encrypt.  
 
 ![Fluxo](fluxo.jpeg)
 
