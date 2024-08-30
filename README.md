@@ -2,6 +2,8 @@
 
 Este projeto fornece um script PowerShell para automatizar a emissão, instalação de certificados SSL(Let's Encrypt) usando o módulo Posh-ACME, Let’s Encrypt e o agendamento de tarefas no Windows para renovação automática. O script é capaz de criar o agendamento, emitir o certificado digital e configurar certificados em várias aplicações, incluindo IIS, RDGW e VPN-SSTP, ele é integrado com o Azure DNS para gerenciamento do desafio do Let-s Encrypt.  
 
+![Fluxo](fluxo.jpeg)
+
 ## Funcionalidades ##  
 
 **- Download e configuração:** O script realiza o download dos arquivos necessários para emissão, instalação e renovação dos certificados e configura as váriaveis necessárias para comunicação com Azure DNS.
