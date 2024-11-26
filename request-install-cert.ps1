@@ -102,7 +102,7 @@ function Request-And-Install-Certificate {
     }
     else {
             # Solicitar um novo certificado
-            New-PACertificate -Domain $Domain -AcceptTOS -Contact $Email -CertKeyLength ec-256 -Plugin Azure -PluginArgs $pluginArgs -DnsSleep 2 -Verbose -ErrorAction SilentlyContinue
+            New-PACertificate -Domain $Domain -AcceptTOS -CertKeyLength ec-256 -Plugin Azure -PluginArgs $pluginArgs -DnsSleep 2 -Verbose -ErrorAction SilentlyContinue
             Write-Output "Certificado solicitado com sucesso."
             Install-Certificate -Domain $Domain -I:$I -R:$R -V:$V
         }
